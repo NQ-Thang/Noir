@@ -15,12 +15,12 @@ public class Entity : MonoBehaviour
 
     [Header("Collision Check Settings")]
     [SerializeField] protected Transform groundCheckPosition;
-    [SerializeField] protected Vector2 groundCheckSize = new Vector2(0.85f, 0.25f);
+    [SerializeField] protected Vector2 groundCheckSize = new Vector2(0.45f, 0.15f);
     [SerializeField] protected float groundCheckRadius = 0.2f;
     [SerializeField] protected LayerMask groundCheckLayer;
 
     [SerializeField] protected Transform wallCheckPosition;
-    [SerializeField] protected Vector2 wallCheckSize = new Vector2(0.35f, 1.4f);
+    [SerializeField] protected Vector2 wallCheckSize = new Vector2(0.2f, 0.8f);
     [SerializeField] protected float wallCheckRadius = 0.2f;
     [SerializeField] protected LayerMask wallCheckLayer;
     [SerializeField] protected bool useBoxCheck = true;

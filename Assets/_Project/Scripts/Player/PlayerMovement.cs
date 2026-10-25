@@ -8,10 +8,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] private float moveSpeed = 10f;
-    [SerializeField] private float jumpForce = 13.5f;
-    [SerializeField] private float wallSlideSpeed = 2.5f;
-    [SerializeField] private Vector2 wallJumpForce = new Vector2(11f, 13.5f);
+    [SerializeField] private float moveSpeed = 7.5f;
+    [SerializeField] private float jumpForce = 9f;
+    [SerializeField] private float wallSlideSpeed = 1.8f;
+    [SerializeField] private Vector2 wallJumpForce = new Vector2(7.5f, 9f);
     [SerializeField] private float wallJumpDuration = 0.16f;
     [SerializeField] private float wallCatchDelay = 0.06f;
     [SerializeField] private float fallMultiplier = 2.5f;
@@ -25,15 +25,15 @@ public class PlayerMovement : MonoBehaviour
     private float coyoteTimeCounter;
 
     [Header("Apex Modifiers Settings")]
-    [SerializeField] private float apexThreshold = 1.5f;
+    [SerializeField] private float apexThreshold = 1.2f;
     [SerializeField] private float apexGravityMultiplier = 0.5f;
     [SerializeField] private float apexBonusSpeedMultiplier = 1.15f;
 
     [Header("Ledge Corner Correction Settings")]
-    [SerializeField] private float cornerCorrectionDistance = 0.38f;
-    [SerializeField] private float cornerCorrectionNudge = 0.12f;
+    [SerializeField] private float cornerCorrectionDistance = 0.2f;
+    [SerializeField] private float cornerCorrectionNudge = 0.07f;
     [SerializeField] private Transform headCheckPosition;
-    [SerializeField] private float headCheckDistance = 0.35f;
+    [SerializeField] private float headCheckDistance = 0.2f;
 
     private float currentApexBonus = 1f;
     private bool isAtApex;

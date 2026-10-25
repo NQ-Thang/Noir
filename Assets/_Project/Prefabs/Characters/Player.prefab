@@ -390,23 +390,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f95ce92ca4402e49b3dd123ef74b07b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
-  jumpForce: 13.5
-  wallSlideSpeed: 2.5
-  wallJumpForce: {x: 11, y: 13.5}
+  moveSpeed: 7.5
+  jumpForce: 9
+  wallSlideSpeed: 1.8
+  wallJumpForce: {x: 7.5, y: 9}
   wallJumpDuration: 0.16
   wallCatchDelay: 0.06
   fallMultiplier: 2.5
   jumpBufferTime: 0.15
   jumpCutMultiplier: 2.5
   coyoteTime: 0.15
-  apexThreshold: 1.5
+  apexThreshold: 1.2
   apexGravityMultiplier: 0.5
   apexBonusSpeedMultiplier: 1.15
-  cornerCorrectionDistance: 0.38
-  cornerCorrectionNudge: 0.12
+  cornerCorrectionDistance: 0.2
+  cornerCorrectionNudge: 0.07
   headCheckPosition: {fileID: 8925523424713685150}
-  headCheckDistance: 0.35
+  headCheckDistance: 0.2
 --- !u!114 &8743826816809436128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,13 +492,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundCheckPosition: {fileID: 8311895215357140604}
-  groundCheckSize: {x: 0.85, y: 0.25}
+  groundCheckSize: {x: 0.45, y: 0.15}
   groundCheckRadius: 0.35
   groundCheckLayer:
     serializedVersion: 2
     m_Bits: 64
   wallCheckPosition: {fileID: 4195981750369475095}
-  wallCheckSize: {x: 0.35, y: 1.4}
+  wallCheckSize: {x: 0.2, y: 0.8}
   wallCheckRadius: 0.35
   wallCheckLayer:
     serializedVersion: 2
