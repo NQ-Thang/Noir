@@ -23,8 +23,17 @@ public class Player : Entity
     public bool jumpInput { get; private set; }
     public bool jumpUpInput { get; private set; }
 
+    public static Player Instance { get; private set; }
+
     protected override void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+
         base.Awake(); // Lấy Rigidbody, Animator, Health từ Entity
 
         // Tự động kết nối đến các mảnh ghép chức năng
