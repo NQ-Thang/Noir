@@ -10,19 +10,27 @@ public static class SceneBootstrapper
 {
     private const string CoreSceneName = "Core_Scene";
 
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     private static void Bootstrap()
     {
-        // Nếu scene khởi động chính đã là Core_Scene thì không cần làm gì thêm
-        Scene activeScene = SceneManager.GetActiveScene();
-        if (activeScene.name == CoreSceneName)
+        // 1. Nếu GameManager đã tồn tại trong scene (tức Core_Scene đã có sẵn) -> không nạp lại
+        if (GameManager.Instance != null || Object.FindFirstObjectByType<GameManager>() != null)
         {
             return;
         }
 
-        // Nếu khởi động từ SpiritRealm_Scene hoặc level khác, kiểm tra xem Core_Scene đã được nạp chưa
-        Scene coreScene = SceneManager.GetSceneByName(CoreSceneName);
-        if (!coreScene.isLoaded && Application.CanStreamedLevelBeLoaded(CoreSceneName))
+        // 2. Kiểm tra danh sách tất cả scene đang có (kể cả khi đang mở Multi-Scene trong Editor)
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            Scene s = SceneManager.GetSceneAt(i);
+            if (s.name == CoreSceneName)
+            {
+                return;
+            }
+        }
+
+        // 3. Chỉ tự động nạp Core_Scene khi người dùng Play trực tiếp từ một level scene đơn lẻ
+        if (Application.CanStreamedLevelBeLoaded(CoreSceneName))
         {
             Debug.Log($"[SceneBootstrapper] Auto-loading Persistent Core Scene ('{CoreSceneName}') additively...");
             SceneManager.LoadScene(CoreSceneName, LoadSceneMode.Additive);

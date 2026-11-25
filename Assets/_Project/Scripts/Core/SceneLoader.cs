@@ -115,6 +115,12 @@ public class SceneLoader : MonoBehaviour
             return;
         }
 
+        if (string.IsNullOrEmpty(sceneName) || !Application.CanStreamedLevelBeLoaded(sceneName))
+        {
+            Debug.LogWarning($"[SceneLoader] Target scene '{sceneName}' cannot be loaded (missing or not added to Build Settings).");
+            return;
+        }
+
         StartCoroutine(LoadGameplaySceneRoutine(sceneName, targetSpawnPointID, onComplete));
     }
 
@@ -197,12 +203,23 @@ public class SceneLoader : MonoBehaviour
         SpawnPoint chosenSpawn = targetSpawn ?? fallbackSpawn;
         if (chosenSpawn != null && persistentPlayer != null)
         {
+            Vector3 positionDelta = chosenSpawn.transform.position - persistentPlayer.position;
             persistentPlayer.position = chosenSpawn.transform.position;
             Rigidbody2D rb = persistentPlayer.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
                 rb.linearVelocity = Vector2.zero;
             }
+
+            if (cmConfiner != null)
+            {
+                CinemachineCamera cmCam = cmConfiner.GetComponent<CinemachineCamera>();
+                if (cmCam != null)
+                {
+                    cmCam.OnTargetObjectWarped(persistentPlayer, positionDelta);
+                }
+            }
+
             Debug.Log($"[SceneLoader] Positioned Player at SpawnPoint: '{chosenSpawn.PointID}' ({chosenSpawn.transform.position}) in '{roomScene.name}'.");
         }
 
