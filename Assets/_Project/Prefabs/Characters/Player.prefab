@@ -390,17 +390,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f95ce92ca4402e49b3dd123ef74b07b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7.5
-  jumpForce: 9
-  wallSlideSpeed: 1.8
-  wallJumpForce: {x: 7.5, y: 9}
-  wallJumpDuration: 0.16
+  moveSpeed: 8.5
+  groundAccelTime: 0.08
+  turnAccelTime: 0.05
+  airControlMultiplier: 0.8
+  jumpHeight: 3.8
+  timeToJumpApex: 0.38
+  fallMultiplier: 1.7
+  jumpCutMultiplier: 0.45
+  maxFallSpeed: 19
+  wallSlideSpeed: 2.8
+  wallJumpForce: {x: 8, y: 16.5}
+  wallJumpDuration: 0.12
   wallCatchDelay: 0.06
-  fallMultiplier: 2.5
   jumpBufferTime: 0.15
-  jumpCutMultiplier: 2.5
   coyoteTime: 0.15
-  apexThreshold: 1.2
+  apexThreshold: 3
   apexGravityMultiplier: 0.5
   apexBonusSpeedMultiplier: 1.15
   cornerCorrectionDistance: 0.2
@@ -440,7 +445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swordPickUpDistance: 1
   swordPrefab: {fileID: 1256633772694715456, guid: 3799676ce5c51b647b981c696ee5cccc, type: 3}
-  dashSpeed: 25
+  dashSpeed: 28
   dashDamage: 20
   dashDamageRadius: 0.6
   enemyLayer:

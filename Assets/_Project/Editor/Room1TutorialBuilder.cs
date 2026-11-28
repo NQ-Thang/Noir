@@ -85,16 +85,17 @@ public static class Room1TutorialBuilder
         );
 
         // ------------------------------------------------------------------
-        // 2. ZONE 2: JUMP & WALL JUMP (x: -48 -> 0)
+        // 2. ZONE 2: JUMP & WALL JUMP (x: -48 -> +1)
+        //    Max jump height ~3.8m, max horizontal jump range ~5.7m
         // ------------------------------------------------------------------
         GameObject z2 = CreateGroup("02_Zone_Jump_And_WallJump", roomRoot.transform);
 
-        // 2A: Jump & Variable Height
+        // 2A: Jump & Variable Height (gaps 2.5m and 3.5m -> comfortable with ~5.7m jump)
         CreateGroundByTop("Z2_Ground_Start", z2.transform, -48f, -38f, 0f, 6f, groundLayer, GroundColor, squareSprite);
-        CreateGroundByTop("Z2_Platform_Step1", z2.transform, -36f, -30f, 2.2f, 1.0f, groundLayer, PlatformColor, squareSprite);
-        CreateGroundByTop("Z2_Pit_SafetyFloor", z2.transform, -38f, -16.5f, -3.5f, 2f, groundLayer, SafetyFloorColor, squareSprite);
+        CreateGroundByTop("Z2_Platform_Step1", z2.transform, -35.5f, -30.5f, 2.0f, 1.0f, groundLayer, PlatformColor, squareSprite);
+        CreateGroundByTop("Z2_Pit_SafetyFloor", z2.transform, -38f, -20.0f, -3.5f, 2f, groundLayer, SafetyFloorColor, squareSprite);
         CreateGroundByTop("Z2_Pit_EscapeStep", z2.transform, -37.5f, -34.5f, -1.2f, 0.7f, groundLayer, PlatformColor, squareSprite);
-        CreateGroundByTop("Z2_Platform_Step2", z2.transform, -23.5f, -16.5f, 3.8f, 1.0f, groundLayer, PlatformColor, squareSprite);
+        CreateGroundByTop("Z2_Platform_Step2", z2.transform, -27.0f, -20.0f, 3.2f, 1.0f, groundLayer, PlatformColor, squareSprite);
 
         CreateTutorialPrompt(
             "Prompt_02A_Jump",
@@ -103,84 +104,84 @@ public static class Room1TutorialBuilder
             "2. NHẢY\nNhấn [SPACE] để nhảy\n(Giữ lâu hơn để nhảy cao hơn)"
         );
 
-        // 2B: Spacious Wall Slide & Wall Jump Chimney (5.5m inner gap, 10.5m exit)
-        CreateGroundByTop("Z2_WallJump_BaseFloor", z2.transform, -16.5f, -4f, 0f, 6f, groundLayer, GroundColor, squareSprite);
-        CreateBoxFromBounds("Z2_WallJump_LeftWall", z2.transform, -12.5f, -11.0f, 4.0f, 14.5f, wallLayer, WallColor, squareSprite);
-        CreateBoxFromBounds("Z2_WallJump_RightWall", z2.transform, -5.5f, -4.0f, 0.0f, 10.5f, wallLayer, WallColor, squareSprite);
-        CreateGroundByTop("Z2_Platform_Exit", z2.transform, -4.0f, 3.0f, 10.5f, 1.2f, groundLayer, PlatformColor, squareSprite);
+        // 2B: Wall Slide & Wall Jump Chimney (4.5m inner gap, 9.0m exit)
+        CreateGroundByTop("Z2_WallJump_BaseFloor", z2.transform, -20.0f, -7.0f, 0f, 6f, groundLayer, GroundColor, squareSprite);
+        CreateBoxFromBounds("Z2_WallJump_LeftWall", z2.transform, -14.5f, -13.0f, 3.2f, 12.5f, wallLayer, WallColor, squareSprite);
+        CreateBoxFromBounds("Z2_WallJump_RightWall", z2.transform, -8.5f, -7.0f, 0.0f, 9.0f, wallLayer, WallColor, squareSprite);
+        CreateGroundByTop("Z2_Platform_Exit", z2.transform, -7.0f, 1.0f, 9.0f, 1.2f, groundLayer, PlatformColor, squareSprite);
 
         CreateTutorialPrompt(
             "Prompt_02B_WallJump",
             z2.transform,
-            new Vector3(-8.5f, 16.0f, 0f),
+            new Vector3(-10.5f, 14.5f, 0f),
             "3. BẨY TƯỜNG (WALL JUMP)\nNhảy áp sát tường để trượt, nhấn [SPACE] bật sang tường đối diện"
         );
 
         // ------------------------------------------------------------------
-        // 3. ZONE 3: MELEE ATTACK & FOCUS HEAL (x: +3 -> +32)
+        // 3. ZONE 3: MELEE ATTACK & FOCUS HEAL (x: +1 -> +32)
         // ------------------------------------------------------------------
         GameObject z3 = CreateGroup("03_Zone_Melee_Combat", roomRoot.transform);
-        CreateGroundByTop("Z3_Ground_Arena", z3.transform, 3f, 32f, 0f, 6f, groundLayer, GroundColor, squareSprite);
+        CreateGroundByTop("Z3_Ground_Arena", z3.transform, 1f, 32f, 0f, 6f, groundLayer, GroundColor, squareSprite);
         CreateGroundByTop("Z3_Step_Exit", z3.transform, 28f, 32f, 2.0f, 2.0f, groundLayer, PlatformColor, squareSprite);
 
-        CreateMarker("Enemy_Spawn_Melee_1", z3.transform, new Vector3(13f, 1.0f, 0f), EnemyMarkerColor, squareSprite, "QUÁI (Thêm sau)");
-        CreateMarker("Enemy_Spawn_Melee_2", z3.transform, new Vector3(22f, 1.0f, 0f), EnemyMarkerColor, squareSprite, "QUÁI (Thêm sau)");
+        CreateMarker("Enemy_Spawn_Melee_1", z3.transform, new Vector3(12f, 1.0f, 0f), EnemyMarkerColor, squareSprite, "QUÁI (Thêm sau)");
+        CreateMarker("Enemy_Spawn_Melee_2", z3.transform, new Vector3(21f, 1.0f, 0f), EnemyMarkerColor, squareSprite, "QUÁI (Thêm sau)");
 
         CreateTutorialPrompt(
             "Prompt_03_Melee",
             z3.transform,
-            new Vector3(17.5f, 5.5f, 0f),
+            new Vector3(16.5f, 5.5f, 0f),
             "4. TẤN CÔNG THƯỜNG & HỒI MÁU\n[Chuột Trái] + Trỏ chuột: Chém thường (Tích Anima)\n[Giữ S] khi đứng yên: Vận công hồi máu"
         );
 
         // ------------------------------------------------------------------
-        // 4. ZONE 4: MANDATORY THROW & DASH TO SWORD (x: +32 -> +84)
+        // 4. ZONE 4: MANDATORY THROW & DASH TO SWORD (x: +32 -> +82)
         // ------------------------------------------------------------------
         GameObject z4 = CreateGroup("04_Zone_Throw_And_Dash", roomRoot.transform);
 
-        // 4A: 17m Wide Gap (exceeds 12.2m max jump -> forces Jump + Throw Sword + Dash!)
+        // 4A: 15m Wide Gap (exceeds 5.7m max jump -> forces Jump + Throw Sword + Dash!)
         CreateGroundByTop("Z4_Ledge_Start", z4.transform, 32f, 39f, 2.0f, 8.0f, groundLayer, GroundColor, squareSprite);
-        CreateGroundByTop("Z4_SafetyFloor", z4.transform, 39f, 56f, -4.0f, 2f, groundLayer, SafetyFloorColor, squareSprite);
+        CreateGroundByTop("Z4_SafetyFloor", z4.transform, 39f, 54f, -4.0f, 2f, groundLayer, SafetyFloorColor, squareSprite);
         CreateGroundByTop("Z4_SafetyStep_1", z4.transform, 38.5f, 41.0f, -1.8f, 0.7f, groundLayer, PlatformColor, squareSprite);
         CreateGroundByTop("Z4_SafetyStep_2", z4.transform, 36.0f, 38.5f, 0.2f, 0.7f, groundLayer, PlatformColor, squareSprite);
-        CreateGroundByTop("Z4_Ledge_Target", z4.transform, 56f, 68f, 2.0f, 8.0f, groundLayer, GroundColor, squareSprite);
-        CreateBoxFromBounds("Z4_HangingWall_Anchor", z4.transform, 55.5f, 57.0f, 6.0f, 11.5f, wallLayer, WallColor, squareSprite);
+        CreateGroundByTop("Z4_Ledge_Target", z4.transform, 54f, 66f, 2.0f, 8.0f, groundLayer, GroundColor, squareSprite);
+        CreateBoxFromBounds("Z4_HangingWall_Anchor", z4.transform, 53.5f, 55.0f, 5.5f, 10.5f, wallLayer, WallColor, squareSprite);
 
         CreateTutorialPrompt(
             "Prompt_04A_ThrowDash",
             z4.transform,
-            new Vector3(47.5f, 8.5f, 0f),
+            new Vector3(46.5f, 8.2f, 0f),
             "5. PHI KIẾM & LƯỚT (BẮT BUỘC NHẢY + DASH)\nNhảy ra vực → [Chuột Phải] lần 1: Ném kiếm qua vực\n[Chuột Phải] lần 2: Dash tới kiếm  |  [R]: Thu hồi"
         );
 
-        // 4B: 7.5m High Cliff (exceeds 4.2m max jump -> forces Jump + Throw into high wall + Dash!)
-        CreateGroundByTop("Z4_HighCliff", z4.transform, 68f, 84f, 9.5f, 15.5f, wallLayer, WallColor, squareSprite);
+        // 4B: 6.5m High Cliff (exceeds 3.8m max jump -> forces Jump + Throw into high wall + Dash!)
+        CreateGroundByTop("Z4_HighCliff", z4.transform, 66f, 82f, 8.5f, 14.5f, wallLayer, WallColor, squareSprite);
 
         CreateTutorialPrompt(
             "Prompt_04B_HighClimb",
             z4.transform,
-            new Vector3(63.5f, 11.5f, 0f),
+            new Vector3(61.5f, 10.5f, 0f),
             "6. VƯỢT VÁCH CAO\nNhảy lên & ném kiếm găm vào vách tường cao rồi Dash lên đỉnh!"
         );
 
         // ------------------------------------------------------------------
-        // 5. ZONE 5: SYNTHESIS CHALLENGE (x: +84 -> +136)
+        // 5. ZONE 5: SYNTHESIS CHALLENGE (x: +82 -> +136)
         // ------------------------------------------------------------------
         GameObject z5 = CreateGroup("05_Zone_Synthesis", roomRoot.transform);
 
-        // 7m jump -> 18m gap with mid-air hanging wall -> Wall Jump / Dash to Goal at y = 14.5
-        CreateGroundByTop("Z5_Platform_Mid", z5.transform, 91f, 98f, 11.0f, 1.2f, groundLayer, PlatformColor, squareSprite);
-        CreateBoxFromBounds("Z5_HangingWall_Mid", z5.transform, 109.5f, 111.0f, 12.5f, 19.5f, wallLayer, WallColor, squareSprite);
-        CreateGroundByTop("Z5_Platform_Goal", z5.transform, 116f, 136f, 14.5f, 1.8f, groundLayer, GroundColor, squareSprite);
+        // 4.5m jump -> 15m gap with mid-air hanging wall -> Wall Jump / Dash to Goal at y = 12.8
+        CreateGroundByTop("Z5_Platform_Mid", z5.transform, 86.5f, 93.5f, 9.8f, 1.2f, groundLayer, PlatformColor, squareSprite);
+        CreateBoxFromBounds("Z5_HangingWall_Mid", z5.transform, 103.5f, 105.0f, 11.0f, 17.5f, wallLayer, WallColor, squareSprite);
+        CreateGroundByTop("Z5_Platform_Goal", z5.transform, 108.5f, 128.0f, 12.8f, 1.8f, groundLayer, GroundColor, squareSprite);
 
         // Safety floor + return steps below Zone 5
-        CreateGroundByTop("Z5_SafetyFloor", z5.transform, 84f, 138f, 0.0f, 6f, groundLayer, SafetyFloorColor, squareSprite);
-        CreateGroundByTop("Z5_ReturnStep_1", z5.transform, 86f, 89.5f, 2.8f, 0.8f, groundLayer, PlatformColor, squareSprite);
-        CreateGroundByTop("Z5_ReturnStep_2", z5.transform, 83f, 86.5f, 5.5f, 0.8f, groundLayer, PlatformColor, squareSprite);
-        CreateGroundByTop("Z5_ReturnStep_3", z5.transform, 80f, 83.5f, 8.0f, 0.8f, groundLayer, PlatformColor, squareSprite);
+        CreateGroundByTop("Z5_SafetyFloor", z5.transform, 82f, 138f, 0.0f, 6f, groundLayer, SafetyFloorColor, squareSprite);
+        CreateGroundByTop("Z5_ReturnStep_1", z5.transform, 84f, 87.5f, 2.5f, 0.8f, groundLayer, PlatformColor, squareSprite);
+        CreateGroundByTop("Z5_ReturnStep_2", z5.transform, 81f, 84.5f, 5.0f, 0.8f, groundLayer, PlatformColor, squareSprite);
+        CreateGroundByTop("Z5_ReturnStep_3", z5.transform, 78f, 81.5f, 7.2f, 0.8f, groundLayer, PlatformColor, squareSprite);
 
-        CreateMarker("Enemy_Spawn_Synthesis_Final", z5.transform, new Vector3(124f, 15.5f, 0f), EnemyMarkerColor, squareSprite, "QUÁI CUỐI (Thêm sau)");
-        GameObject goalExit = CreateMarker("Room1_Goal_Exit", z5.transform, new Vector3(132f, 16.0f, 0f), GoalColor, squareSprite, "CỔNG SANG ROOM 2");
+        CreateMarker("Enemy_Spawn_Synthesis_Final", z5.transform, new Vector3(116f, 13.8f, 0f), EnemyMarkerColor, squareSprite, "QUÁI CUỐI (Thêm sau)");
+        GameObject goalExit = CreateMarker("Room1_Goal_Exit", z5.transform, new Vector3(124f, 14.3f, 0f), GoalColor, squareSprite, "CỔNG SANG ROOM 2");
         BoxCollider2D goalCol = goalExit.AddComponent<BoxCollider2D>();
         goalCol.isTrigger = true;
         goalCol.size = new Vector2(1.5f, 3.0f);
@@ -189,7 +190,7 @@ public static class Room1TutorialBuilder
         CreateTutorialPrompt(
             "Prompt_05_Synthesis",
             z5.transform,
-            new Vector3(106f, 21.0f, 0f),
+            new Vector3(101f, 19.2f, 0f),
             "7. TỔNG HỢP\nKết hợp: Nhảy + Ném kiếm găm tường + Dash + Wall Jump + Chiến đấu!"
         );
 

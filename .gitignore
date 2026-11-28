@@ -75,3 +75,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # End of https://www.toptal.com/developers/gitignore/api/unity
+
+# Paid third-party Asset Store plugins (do not push to Git)
+/[Aa]ssets/Plugins/AllIn1Assets/
+/[Aa]ssets/Plugins/AllIn1Assets.meta

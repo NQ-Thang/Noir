@@ -1,2 +1,0 @@
-- Explored cloak design.
-- Explored fur design.

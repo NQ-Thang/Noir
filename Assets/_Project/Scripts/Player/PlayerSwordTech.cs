@@ -16,7 +16,7 @@ public class PlayerSwordTech : MonoBehaviour
     private bool throwInput;
 
     [Header("Dash to Sword Settings")]
-    [SerializeField] private float dashSpeed = 25f;
+    [SerializeField] private float dashSpeed = 28f;
     [SerializeField] private float dashShrinkScale = 0.2f;
 
     private Vector2 dashTargetPosition;

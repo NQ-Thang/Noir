@@ -1,4 +1,12 @@
 ﻿<Solution>
+  <Project Path="AllIn1SharedExtensionsAssembly.Editor.csproj" />
+  <Project Path="AllIn1SharedAssembly.Editor.csproj" />
+  <Project Path="AllIn1VfxToolkitAssembly.Editor.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="AllIn1SharedExtensionsAssembly.csproj" />
   <Project Path="Assembly-CSharp-Editor.csproj" />
+  <Project Path="AllIn1VfxToolkitAssembly.csproj" />
+  <Project Path="AllIn1VfxDemoScriptAssemblies.csproj" />
+  <Project Path="AllIn1SharedAssembly.csproj" />
+  <Project Path="AllIn1VfxTexDemoAssembly.csproj" />
 </Solution>
